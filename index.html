@@ -180,5 +180,222 @@
             <a href=@"index.htmt">Файл проверка работы с кириллицей .html</a>
     </p>
 
-</body<a href="krossvordRU.html">Русский кроссворд</a>
+</body<a href="<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 Новогодний кроссворд 🎁</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #0a4a6e, #1e7b5e);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.6em;
+            margin: 15px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .crossword-grid {
+            display: inline-block;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #333;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            background-color: #f9f9f9;
+        }
+        td.black {
+            background-color: #0d5c3e;
+            border-color: #083a28;
+        }
+        td[contenteditable="true"]:hover {
+            background-color: #fff9c4;
+            cursor: text;
+        }
+        .number {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 10px;
+            color: #d42426;
+            font-weight: bold;
+        }
+        .clues-section {
+            background-color: rgba(255,255,255,0.95);
+            color: #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .clues-section h2 {
+            color: #d42426;
+            margin-top: 0;
+        }
+        .clue-list {
+            text-align: left;
+            columns: 2;
+            column-gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .clue-list {
+                columns: 1;
+            }
+            td {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .snowflake {
+            font-size: 24px;
+            display: inline-block;
+            animation: fall 8s infinite linear;
+            position: absolute;
+            top: -20px;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Снежинки (декор) -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
+        <div class="snowflake" style="left:10%; animation-delay:0s;">❄</div>
+        <div class="snowflake" style="left:20%; animation-delay:2s;">❄</div>
+        <div class="snowflake" style="left:35%; animation-delay:4s;">❅</div>
+        <div class="snowflake" style="left:50%; animation-delay:1s;">❆</div>
+        <div class="snowflake" style="left:65%; animation-delay:3s;">❄</div>
+        <div class="snowflake" style="left:80%; animation-delay:5s;">❅</div>
+        <div class="snowflake" style="left:90%; animation-delay:6s;">❆</div>
+    </div>
+
+    <div class="container">
+        <h1>✨ Новогодний кроссворд ✨</h1>
+
+        <div class="crossword-grid">
+            <table>
+                <!-- 15 строк -->
+                <tr>
+                    <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td><span class="number">1</span><span contenteditable="true">И</span></td><td contenteditable="true">Г</td><td contenteditable="true">Р</td><td contenteditable="true">У</td><td contenteditable="true">Ш</td><td contenteditable="true">К</td><td contenteditable="true">А</td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td><span class="number">2</span><span contenteditable="true">Ё</span></td><td contenteditable="true">Л</td><td contenteditable="true">К</td><td contenteditable="true">А</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td><span class="number">3</span><span contenteditable="true">С</span></td><td contenteditable="true">Н</td><td contenteditable="true">Е</td><td contenteditable="true">Г</td><td contenteditable="true">У</td><td contenteditable="true">Р</td><td contenteditable="true">О</td><td contenteditable="true">Ч</td><td contenteditable="true">К</td><td contenteditable="true">А</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Н</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Е</td><td class="black"></td><td><span class="number">4</span><span contenteditable="true">С</span></td><td contenteditable="true">Н</td><td contenteditable="true">Е</td><td contenteditable="true">Г</td><td contenteditable="true">О</td><td contenteditable="true">В</td><td contenteditable="true">И</td><td contenteditable="true">К</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Г</td><td class="black"></td><td contenteditable="true">М</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td><span class="number">5</span><span contenteditable="true">М</span></td><td contenteditable="true">А</td><td contenteditable="true">Н</td><td contenteditable="true">Д</td><td contenteditable="true">А</td><td contenteditable="true">Р</td><td contenteditable="true">И</td><td contenteditable="true">Н</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td contenteditable="true">О</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td><span class="number">6</span><span contenteditable="true">О</span></td><td contenteditable="true">Л</td><td contenteditable="true">И</td><td contenteditable="true">В</td><td contenteditable="true">Ь</td><td contenteditable="true">Е</td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td contenteditable="true">Д</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td><span class="number">7</span><span contenteditable="true">Х</span></td><td contenteditable="true">Л</td><td contenteditable="true">О</td><td contenteditable="true">П</td><td contenteditable="true">У</td><td contenteditable="true">Ш</td><td contenteditable="true">К</td><td contenteditable="true">А</td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td contenteditable="true">А</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td contenteditable="true">Е</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td contenteditable="true">Р</td><td class="black"></td><td class="black"></td><td class="black"></td><td><span class="number">8</span><span contenteditable="true">Ф</span></td><td contenteditable="true">Е</td><td contenteditable="true">Й</td><td contenteditable="true">Е</td><td contenteditable="true">Р</td><td contenteditable="true">В</td><td contenteditable="true">Е</td><td contenteditable="true">Р</td><td contenteditable="true">К</td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="black"></td><td contenteditable="true">О</td><td class="black"></td><td class="black"></td><td class="black"></td><td contenteditable="true">Е</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td><span class="number">9</span><span contenteditable="true">П</span></td><td contenteditable="true">О</td><td contenteditable="true">Д</td><td contenteditable="true">А</td><td contenteditable="true">Р</td><td contenteditable="true">О</td><td contenteditable="true">К</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">С</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td contenteditable="true">Г</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+                <tr>
+                    <td><span class="number">10</span><span contenteditable="true">С</span></td><td contenteditable="true">Н</td><td contenteditable="true">Е</td><td contenteditable="true">Г</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clues-section">
+            <h2>🔍 Подсказки</h2>
+            <div class="clue-list">
+                <div><strong>По горизонтали:</strong></div>
+                <div>1. Украшение ёлки</div>
+                <div>2. Главное дерево праздника</div>
+                <div>3. Внучка Деда Мороза</div>
+                <div>4. Зимний человечек из снега</div>
+                <div>5. Цитрусовый символ Нового года</div>
+                <div>6. Салат с колбасой и картошкой</div>
+                <div>7. «Выстрел» с конфетти</div>
+                <div>8. Праздничный салют в небе</div>
+                <div>9. То, что лежит под ёлкой</div>
+
+                <div><strong>По вертикали:</strong></div>
+                <div>1. См. гориз. 1 — тоже Игрушка (пересечение)</div>
+                <div>3. См. гориз. 3 — Снегурочка (пересечение)</div>
+                <div>10. Белое покрывало на улице</div>
+            </div>
+        </div>
+
+        <p class="footer">
+            🎅 Введите буквы прямо в клетки! Ответы уже частично заполнены для примера.<br>
+            С Новым 2026 годом! 🎇
+        </p>
+    </div>
+
+    <script>
+        // Простая подсветка при фокусе (опционально)
+        document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+            cell.addEventListener('focus', () => {
+                cell.style.backgroundColor = '#ffeb3b';
+                cell.style.outline = '2px solid #ff5722';
+            });
+            cell.addEventListener('blur', () => {
+                cell.style.backgroundColor = '';
+                cell.style.outline = '';
+            });
+        });
+    </script>
+</body>
+</html>">Русский кроссворд</a>
 </html>
