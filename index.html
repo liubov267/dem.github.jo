@@ -3,370 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Мой цифровой дневник</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <title>🌸 Мой цветочный дневник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #4a90e2;
-            --light-blue: #e8f4fd;
-            --medium-blue: #7eb3d9;
-            --dark-blue: #2c5282;
+            --sky-light: #e6f7ff;
+            --sky-soft: #b3e0ff;
+            --sky-medium: #7ec8ff;
+            --sky-blue: #4da6ff;
+            --sky-deep: #0077cc;
             --white: #ffffff;
-            --text-dark: #1a202c;
-            --text-light: #4a5568;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --transition: all 0.3s ease;
+            --text-primary: #1a3a52;
+            --text-secondary: #4a6b7c;
+            --flower-pink: #ffb3d9;
+            --flower-purple: #d4a5ff;
+            --flower-yellow: #fff4a3;
+            --shadow-soft: 0 6px 24px rgba(77, 166, 255, 0.15);
+            --shadow-hover: 0 12px 36px rgba(77, 166, 255, 0.25);
+            --radius: 20px;
+            --radius-lg: 28px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, var(--sky-light) 0%, var(--white) 50%, var(--sky-light) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
             min-height: 100vh;
-            padding: 20px;
+            padding: 25px 20px;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* 🌸 Цветочная рамка по краям */
+        .floral-border {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.85;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+        }
+
+        /* Верхний ряд */
+        .flower.t1 { top: 15px; left: 5%; animation-delay: 0s; }
+        .flower.t2 { top: 10px; left: 15%; animation-delay: 0.5s; font-size: 1.8rem; }
+        .flower.t3 { top: 18px; left: 28%; animation-delay: 1s; }
+        .flower.t4 { top: 8px; left: 42%; animation-delay: 1.5s; font-size: 2rem; }
+        .flower.t5 { top: 15px; left: 58%; animation-delay: 2s; }
+        .flower.t6 { top: 12px; left: 72%; animation-delay: 2.5s; font-size: 1.7rem; }
+        .flower.t7 { top: 20px; left: 85%; animation-delay: 3s; }
+        .flower.t8 { top: 10px; left: 95%; animation-delay: 3.5s; }
+
+        /* Нижний ряд */
+        .flower.b1 { bottom: 15px; left: 8%; animation-delay: 1s; }
+        .flower.b2 { bottom: 10px; left: 22%; animation-delay: 1.8s; font-size: 1.9rem; }
+        .flower.b3 { bottom: 18px; left: 38%; animation-delay: 2.2s; }
+        .flower.b4 { bottom: 8px; left: 52%; animation-delay: 3s; font-size: 2.1rem; }
+        .flower.b5 { bottom: 15px; left: 68%; animation-delay: 3.8s; }
+        .flower.b6 { bottom: 12px; left: 82%; animation-delay: 4.5s; font-size: 1.6rem; }
+
+        /* Боковые элементы */
+        .flower.l1 { top: 30%; left: 2px; animation-delay: 0.8s; }
+        .flower.l2 { top: 55%; left: 5px; animation-delay: 2.4s; font-size: 1.7rem; }
+        .flower.r1 { top: 25%; right: 2px; animation-delay: 1.6s; }
+        .flower.r2 { top: 70%; right: 5px; animation-delay: 3.2s; font-size: 1.8rem; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+
+        /* Декоративные виньетки в углах */
+        .corner {
+            position: fixed;
+            font-size: 2.5rem;
+            opacity: 0.7;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .corner.tl { top: 20px; left: 20px; }
+        .corner.tr { top: 20px; right: 20px; transform: scaleX(-1); }
+        .corner.bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
+        .corner.br { bottom: 20px; right: 20px; transform: scale(-1); }
 
         .container {
-            max-width: 900px;
+            max-width: 880px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Header Styles */
+        /* Заголовок */
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--dark-blue);
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header .subtitle {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        header .quote-hero {
-            font-style: italic;
-            color: var(--dark-blue);
-            margin-top: 15px;
-            padding: 12px 20px;
-            background: var(--light-blue);
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        /* Blog Post Card */
-        .post {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 25px 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            padding: 45px 30px;
+            background: linear-gradient(145deg, var(--white), var(--sky-soft));
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 35px;
+            border: 3px dashed var(--sky-medium);
             position: relative;
             overflow: hidden;
         }
 
-        .post::before {
-            content: '';
+        header::before {
+            content: "🌸 🌼 🌸 🌷 🌸 🌼 🌸";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--medium-blue));
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.1rem;
+            letter-spacing: 8px;
+            opacity: 0.6;
+            white-space: nowrap;
+        }
+
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            color: var(--sky-deep);
+            margin: 25px 0 12px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        header .quote-hero {
+            font-style: italic;
+            color: var(--sky-deep);
+            padding: 15px 25px;
+            background: linear-gradient(135deg, var(--sky-light), var(--white));
+            border-radius: 16px;
+            border: 2px solid var(--sky-medium);
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1.15rem;
+        }
+
+        /* Карточка поста */
+        .post {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.35s ease;
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, var(--flower-pink), var(--sky-medium), var(--flower-purple)) 1;
+            position: relative;
+        }
+
+        .post::before {
+            content: '🌸';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            font-size: 1.5rem;
+            background: var(--white);
+            padding: 0 8px;
         }
 
         .post:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.01);
             box-shadow: var(--shadow-hover);
+            border-color: var(--sky-medium);
         }
 
         .post-date {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--sky-medium), var(--sky-blue));
             color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
-        }
-
-        .post h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-blue);
-            margin: 10px 0 15px;
-            font-size: 1.5rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 14px rgba(77, 166, 255, 0.35);
         }
 
         .post h3 {
-            color: var(--primary-blue);
-            margin: 12px 0 10px;
-            font-size: 1.2rem;
+            color: var(--sky-deep);
+            margin: 14px 0 12px;
+            font-size: 1.35rem;
+            font-weight: 700;
         }
 
         .post p {
-            color: var(--text-light);
-            margin: 10px 0;
+            color: var(--text-secondary);
+            margin: 12px 0;
             font-size: 1.05rem;
         }
 
         .post blockquote {
-            border-left: 4px solid var(--primary-blue);
-            padding: 12px 20px;
-            margin: 15px 0;
-            background: var(--light-blue);
-            border-radius: 0 12px 12px 0;
+            border-left: 4px solid var(--sky-blue);
+            padding: 16px 24px;
+            margin: 18px 0;
+            background: linear-gradient(135deg, var(--sky-light), #f0fbff);
+            border-radius: 0 14px 14px 0;
             font-style: italic;
-            color: var(--dark-blue);
-        }
-
-        .post blockquote.q {
-            text-align: center;
-            border-left: none;
-            border-top: 3px solid var(--primary-blue);
-            border-bottom: 3px solid var(--primary-blue);
-            padding: 20px;
-            margin: 20px 0;
-            background: linear-gradient(135deg, var(--light-blue), #f0f9ff);
-            border-radius: 12px;
-            font-size: 1.1rem;
-        }
-
-        /* Links */
-        .post a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
+            color: var(--text-primary);
             position: relative;
         }
 
-        .post a::after {
-            content: '';
+        .post blockquote::before {
+            content: '"';
             position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: var(--transition);
+            top: -8px;
+            left: 12px;
+            font-size: 2.5rem;
+            color: var(--sky-medium);
+            opacity: 0.5;
+            font-family: serif;
         }
 
-        .post a:hover::after {
-            width: 100%;
+        /* Ссылки */
+        .post a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            position: relative;
+            padding-bottom: 2px;
         }
 
         .post a:hover {
-            color: var(--dark-blue);
+            color: var(--sky-deep);
+            text-shadow: 0 0 8px rgba(77, 166, 255, 0.4);
         }
 
-        /* Media */
-        .post img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: var(--shadow);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        .post a::after {
+            content: ' 🌷';
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
+        .post a:hover::after {
+            opacity: 1;
+        }
+
+        /* Медиа */
+        .post img,
         .post video {
             max-width: 100%;
-            border-radius: 12px;
-            margin: 15px 0;
-            box-shadow: var(--shadow);
+            height: auto;
+            border-radius: 16px;
+            margin: 18px auto;
+            box-shadow: var(--shadow-soft);
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            border: 3px solid var(--sky-light);
         }
 
-        /* Code/Data blocks */
+        /* Блоки кода/данных */
         .code-block {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 12px 0;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.95rem;
-            overflow-x: auto;
-            border-left: 4px solid var(--medium-blue);
+            background: linear-gradient(145deg, #f8fdff, #e6f7ff);
+            border: 2px dashed var(--sky-medium);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.98rem;
+            color: var(--text-primary);
+            line-height: 1.8;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin: 15px 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 18px 0;
         }
 
         .stat-card {
-            background: var(--light-blue);
-            padding: 12px 18px;
-            border-radius: 10px;
+            background: linear-gradient(145deg, var(--sky-light), var(--white));
+            padding: 16px 20px;
+            border-radius: 14px;
             text-align: center;
+            border: 2px solid var(--sky-soft);
+            transition: transform 0.25s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.03);
+            border-color: var(--sky-medium);
         }
 
         .stat-card strong {
             display: block;
-            color: var(--dark-blue);
-            font-size: 1.3rem;
-            margin-bottom: 4px;
+            color: var(--sky-deep);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .stat-card span {
-            font-size: 0.9rem;
-            color: var(--text-light);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
 
-        /* Footer */
+        /* Теги */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, var(--flower-pink), var(--sky-soft));
+            color: var(--text-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid var(--sky-medium);
+            transition: all 0.25s ease;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 179, 217, 0.4);
+        }
+
+        /* Футер */
         footer {
             text-align: center;
-            padding: 30px 20px;
-            color: var(--text-light);
-            font-size: 0.95rem;
+            padding: 35px 20px 50px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer::before {
+            content: "✿ ✿ ✿ 🌸 ✿ ✿ ✿";
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            letter-spacing: 6px;
+            opacity: 0.7;
         }
 
         footer a {
-            color: var(--primary-blue);
-            font-weight: 500;
+            color: var(--sky-blue);
+            font-weight: 600;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .post {
-                padding: 20px;
-            }
-            
-            .post h2 {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Animation for new posts */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        /* Анимации */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .post {
-            animation: fadeIn 0.5s ease forwards;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
 
-        .post:nth-child(1) { animation-delay: 0.1s; }
-        .post:nth-child(2) { animation-delay: 0.2s; }
-        .post:nth-child(3) { animation-delay: 0.3s; }
-        /* и так далее */
+        .post:nth-child(1) { animation-delay: 0.1s; opacity: 1; }
+        .post:nth-child(2) { animation-delay: 0.15s; }
+        .post:nth-child(3) { animation-delay: 0.2s; }
+        .post:nth-child(4) { animation-delay: 0.25s; }
+        .post:nth-child(5) { animation-delay: 0.3s; }
+        .post:nth-child(6) { animation-delay: 0.35s; }
+        .post:nth-child(7) { animation-delay: 0.4s; }
+        .post:nth-child(8) { animation-delay: 0.45s; }
+        .post:nth-child(9) { animation-delay: 0.5s; }
+        .post:nth-child(10) { animation-delay: 0.55s; }
+        .post:nth-child(11) { animation-delay: 0.6s; }
+        .post:nth-child(12) { animation-delay: 0.65s; }
+        .post:nth-child(13) { animation-delay: 0.7s; }
+        .post:nth-child(14) { animation-delay: 0.75s; }
 
-        /* Tag badges */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
+        /* Адаптив */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .post { padding: 22px 24px; }
+            .flower { font-size: 1.2rem; }
+            .flower.t4, .flower.b4 { font-size: 1.5rem; }
+            .corner { font-size: 1.8rem; }
         }
 
-        .tag {
-            background: var(--light-blue);
-            color: var(--dark-blue);
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        @media (max-width: 480px) {
+            .flower { display: none; }
+            .corner { display: none; }
+            header { padding: 35px 20px; }
+            header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+    <!-- 🌸 Цветочная рамка -->
+    <div class="floral-border" aria-hidden="true">
+        <span class="flower t1">🌸</span><span class="flower t2">🌼</span><span class="flower t3">🌷</span>
+        <span class="flower t4">🌺</span><span class="flower t5">🌸</span><span class="flower t6">🌼</span>
+        <span class="flower t7">🌷</span><span class="flower t8">🌺</span>
+        
+        <span class="flower b1">🌼</span><span class="flower b2">🌸</span><span class="flower b3">🌺</span>
+        <span class="flower b4">🌷</span><span class="flower b5">🌼</span><span class="flower b6">🌸</span>
+        
+        <span class="flower l1">🌷</span><span class="flower l2">🌺</span>
+        <span class="flower r1">🌼</span><span class="flower r2">🌸</span>
+    </div>
+
+    <!-- Угловые виньетки -->
+    <div class="corner tl">🌸</div>
+    <div class="corner tr">🌸</div>
+    <div class="corner bl">🌸</div>
+    <div class="corner br">🌸</div>
+
     <div class="container">
-        <!-- Header -->
+        <!-- Заголовок -->
         <header>
-            <h1>✨ Мой цифровой дневник</h1>
-            <p class="subtitle">Путешествие в мире технологий и творчества</p>
+            <p class="subtitle">✨ Личный блог о технологиях, творчестве и вдохновении ✨</p>
+            <h1>🌸 Мой цветочный дневник 🌸</h1>
             <div class="quote-hero">
-                «Путешествие в тысячу миль начинается с одного шага» — Лао Цзы
+                🌷 «Путешествие в тысячу миль начинается с одного шага» — Лао Цзы 🌷
             </div>
         </header>
 
-        <!-- Blog Posts -->
+        <!-- Посты -->
         <main>
             <article class="post">
                 <span class="post-date">📅 1 сентября, 2025</span>
-                <p>Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины. 🌐</p>
+                <p>Оставляю в прошлом скучную локальную файловую систему ради прекрасной Всемирной паутины. 🌐✨</p>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 15 октября, 2025</span>
-                <p>Я сделала новогодние кроссворды для сайта <a href="https://justmargaret.github.io/just-yourmargaret2/" title="Блог моего друга">Сайт моего друга</a>. 🎄✏️</p>
+                <p>Создала праздничные новогодние кроссворды для сайта <a href="https://justmargaret.github.io/just-yourmargaret2/">моего друга</a>. 🎄🧩💐</p>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 1 декабря, 2025</span>
-                <img src="Icons/icon.png" alt="Новогоднее оформление" style="max-width: 200px;">
-                <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a> 🎊</p>
+                <img src="Icons/icon.png" alt="Новогоднее украшение" style="max-width: 220px;">
+                <p>🎁 Поздравление с наступающим 2026 годом ждёт вас <a href="Congratulations2026.html">здесь</a>!</p>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 20 декабря, 2025</span>
-                <h3>🎄 Поздравление с Рождеством!</h3>
+                <h3>🎄✨ Рождественское поздравление</h3>
                 <video controls width="100%" height="360" style="max-width: 640px;">
                     <source src="Icons/newTree.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает воспроизведение видео.
+                    Ваш браузер не поддерживает видео
                 </video>
-                <p><strong>🎵 Колядка:</strong></p>
-                <blockquote>Ночь свята, звезды светят ясно,<br>
-                В яслях Спас-Младенец чудный, ясный.<br>
-                Пастухи поют Ему хвалу,<br>
-                Мир дарует Он — любовь и мглу!</blockquote>
+                <p><strong>🎵 Святая колядка:</strong></p>
+                <blockquote>
+                    Ночь свята, звёзды светят ясно,<br>
+                    В яслях Спас-Младенец чудный, ясный.<br>
+                    Пастухи поют Ему хвалу,<br>
+                    Мир дарует Он — любовь и мглу! 🕊️
+                </blockquote>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 14 января, 2026</span>
-                <p><a href="https://github.com/liubov267/dem.github.jo/edit/main/index.html">✍️ Напишите мне</a></p>
-                <p>🌐 Доменное имя моего сайта: <code>dem.github.jo</code></p>
+                <p>💌 <a href="https://github.com/liubov267/dem.github.jo/edit/main/index.html">Напишите мне</a> — буду рада вашим сообщениям!</p>
+                <p>🌐 Мой домен: <code style="background:var(--sky-light); padding:3px 8px; border-radius:6px;">dem.github.jo</code></p>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 19 января, 2026</span>
-                <h3>🔐 Шифрование: практика</h3>
+                <h3>🔐 Шифр Цезаря: практика 🗝️</h3>
                 <div class="code-block">
-                    <p>а. АБРИКОС → САЦЫНВЩЮ, k=17</p>
-                    <p>б. АБРИКОС → ЫЬЛГЕЙМ, k=26</p>
-                    <p>а. ФХНЗКЧ → ПРИВЕТ (k=5)</p>
-                    <p>б. ЦЩЕБФ → ВЕСНА (k=20)</p>
-                    <p>Золотарева → СШХШЬКЪПМК</p>
+                    • АБРИКОС → САЦЫНВЩЮ, <em>k=17</em><br>
+                    • АБРИКОС → ЫЬЛГЕЙМ, <em>k=26</em><br>
+                    • ФХНЗКЧ → ПРИВЕТ, <em>k=5</em> ✨<br>
+                    • ЦЩЕБФ → ВЕСНА, <em>k=20</em><br>
+                    • Золотарева → СШХШЬКЪПМК
                 </div>
             </article>
 
@@ -374,19 +493,19 @@
                 <span class="post-date">📅 20 января, 2026</span>
                 <h3>🔑 RSA: учебный пример</h3>
                 <div class="code-block">
-                    <p><strong>Открытый ключ:</strong> (n, e) = (55, 3)</p>
-                    <p><strong>Закрытый ключ:</strong> (n, d) = (55, 27)</p>
-                    <p><em>⚠️ n=55 — учебное значение</em></p>
-                    <p><strong>В реальности:</strong> 617 десятичных цифр</p>
+                    <strong>Открытый ключ:</strong> (n, e) = (55, 3) 🔓<br>
+                    <strong>Закрытый ключ:</strong> (n, d) = (55, 27) 🔐<br><br>
+                    <em>⚠️ n=55 — для обучения</em><br>
+                    <strong>В реальности:</strong> 617 цифр! 🤯
                 </div>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 18 февраля, 2026</span>
-                <img src="Icons/191-image-07-02-23-11-15.jpeg" alt="Собака породы блутик кунхаунд" style="max-width: 300px;">
-                <h3>🐕 Классификация породы</h3>
+                <img src="Icons/191-image-07-02-23-11-15.jpeg" alt="Bluetick Coonhound" style="max-width: 320px;">
+                <h3>🐕 Распознавание породы</h3>
                 <div class="stats-grid">
-                    <div class="stat-card"><strong>54.94%</strong><span>Bluetick Coonhound</span></div>
+                    <div class="stat-card"><strong>54.94%</strong><span>Bluetick Coonhound 🐾</span></div>
                     <div class="stat-card"><strong>23.43%</strong><span>German Shorthaired Pointer</span></div>
                     <div class="stat-card"><strong>6.49%</strong><span>English Setter</span></div>
                 </div>
@@ -394,11 +513,11 @@
 
             <article class="post">
                 <span class="post-date">📅 25 февраля, 2026</span>
-                <h3>🤖 FAQ Bot Demo</h3>
+                <h3>🤖 FAQ-бот: демо</h3>
                 <div class="code-block">
-                    <p><strong>❓ Вопрос:</strong> Сколько ждать мой заказ?</p>
-                    <p><strong>🔍 Найдено:</strong> "Как быстро доставляется заказ?" (sim=0.706)</p>
-                    <p><strong>✅ Ответ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
+                    ❓ <strong>Вопрос:</strong> Сколько ждать заказ?<br>
+                    🔍 <strong>Найдено:</strong> "Срок доставки?" (sim=0.706)<br>
+                    ✅ <strong>Ответ:</strong> 3–5 рабочих дней 📦✨
                 </div>
             </article>
 
@@ -406,41 +525,36 @@
                 <span class="post-date">📅 16 марта, 2026</span>
                 <h3>📚 Прогноз успеваемости</h3>
                 <div class="stats-grid">
-                    <div class="stat-card"><strong>5 часов</strong><span>Время учёбы</span></div>
-                    <div class="stat-card"><strong>50.23</strong><span>Прогноз баллов</span></div>
+                    <div class="stat-card"><strong>5 часов</strong><span>⏱️ Учеба</span></div>
+                    <div class="stat-card"><strong>50.23</strong><span>🎯 Прогноз</span></div>
                 </div>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 21 марта, 2026</span>
                 <h3>📊 ML: Работа с данными</h3>
-                <p>✅ Загрузила датасет. Показатель точности: <strong>69%</strong></p>
-                <p>🧠 Научилась генерировать датасет на основе: возраст, стаж вождения, число ДТП</p>
+                <p>✅ Датасет загружен. Точность: <strong>69%</strong> 🎯</p>
+                <p>🧠 Генерация данных: возраст, стаж, ДТП</p>
                 <div class="code-block">
-                    <p><strong>Моя модель:</strong></p>
-                    <p>• Возраст: 25 лет</p>
-                    <p>• Стаж: 5 лет</p>
-                    <p>• ДТП: 0</p>
-                    <p><strong>→ Точность: 85%</strong> ✨</p>
+                    <strong>Моя модель:</strong><br>
+                    👤 Возраст: 25 | 🚗 Стаж: 5 лет | ✅ ДТП: 0<br>
+                    <strong>→ Точность: 85%</strong> 🌟
                 </div>
             </article>
 
             <article class="post">
                 <span class="post-date">📅 1 апреля, 2026</span>
-                <h3>🧠 Нейросети: теория и практика</h3>
+                <h3>🧠 Нейросети: магия или математика?</h3>
                 <div class="code-block">
-                    <p><strong>3 признака:</strong><br>
-                    • Train MSE: 0.0179<br>
-                    • Test MSE: 0.0263</p>
-                    <p><strong>4 признака:</strong><br>
-                    • Train MSE: 0.0044<br>
-                    • Test MSE: 0.0040 ✨</p>
+                    <strong>3 признака:</strong><br>
+                    • Train MSE: 0.0179 | Test MSE: 0.0263<br><br>
+                    <strong>4 признака:</strong><br>
+                    • Train MSE: 0.0044 | Test MSE: 0.0040 ✨
                 </div>
-                <blockquote style="margin-top: 15px;">
-                    Логика нейросети — это не волшебство, а масштабируемая настройка параметров. 
-                    В отличие от дерева решений, нейросеть плавно «деформирует» пространство данных, 
-                    находя скрытые закономерности. Она не знает правил — она учится на ошибках. 
-                    Именно эта способность делает нейросети мощнейшим инструментом ИИ. 🚀
+                <blockquote style="margin-top:15px;">
+                    Нейросеть не знает правил — она учится на миллионах примеров, 
+                    плавно «деформируя» пространство данных и находя скрытые паттерны. 
+                    Это не волшебство, а масштабируемая настройка параметров. 🌸🤖
                 </blockquote>
             </article>
 
@@ -456,41 +570,40 @@
 
             <article class="post">
                 <span class="post-date">📅 5 мая, 2026</span>
-                <p>🧩 <a href="кроссворд.ods">Скачать кроссворд</a></p>
+                <p>🧩 <a href="кроссворд.ods">Скачать праздничный кроссворд</a> 🌷</p>
                 <div class="tags">
                     <span class="tag">#кроссворд</span>
-                    <span class="tag">#развлечение</span>
                     <span class="tag">#праздник</span>
+                    <span class="tag">#творчество</span>
+                    <span class="tag">#2026</span>
                 </div>
             </article>
         </main>
 
-        <!-- Footer -->
+        <!-- Футер -->
         <footer>
-            <p>💙 Создано с любовью | <a href="https://github.com/liubov267/dem.github.jo">GitHub</a> | © 2025–2026</p>
-            <p style="margin-top: 8px; font-size: 0.9rem; color: var(--medium-blue);">
-                Домен: <code>dem.github.jo</code>
+            <p>💙 Создано с любовью и цветочным настроением</p>
+            <p style="margin-top:8px;">
+                <a href="https://github.com/liubov267/dem.github.jo">GitHub</a> • 
+                Домен: <code>dem.github.jo</code> • 
+                © 2025–2026 🌸
+            </p>
+            <p style="margin-top:15px; font-size:1.3rem;">
+                🌸 🌼 🌷 🌺 🌸 🌼 🌷 🌺
             </p>
         </footer>
     </div>
 
     <script>
-        // Плавная прокрутка для якорных ссылок
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', e => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(anchor.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
         // Анимация при прокрутке
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -498,7 +611,7 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.post').forEach(post => {
             post.style.opacity = '0';
